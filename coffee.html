@@ -51,8 +51,16 @@
     let coffeeImage = document.querySelector('#coffee-image');    
     let revenueMessage;
     let drinksOrdered = [];
+    const espresso = document.querySelector('#espresso');
+    const latte = document.querySelector('#latte');
+    const hotChocolate = document.querySelector('#hot-chocolate');
 
     coffeeImage.setAttribute('src', 'static/coffee_beans.jpg');
+    
+    espresso.addEventListener('click', function () {makeCoffee("espresso"); });
+    latte.addEventListener('click', function () {makeCoffee("latte"); });
+    hotChocolate.addEventListener('click', function () {makeCoffee("hotChocolate"); });
+
     coffeeImage.addEventListener('click', function () {makeCoffee("brew"); });
 
     function makeCoffee(drinkType) {
