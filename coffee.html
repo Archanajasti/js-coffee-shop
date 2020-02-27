@@ -50,12 +50,16 @@
 
     let coffeeImage = document.querySelector('#coffee-image');    
     let revenueMessage;
+    let drinksOrdered = [];
 
     coffeeImage.setAttribute('src', 'static/coffee_beans.jpg');
-    coffeeImage.addEventListener('click', makeCoffee);
+    coffeeImage.addEventListener('click', function () {makeCoffee("brew"); });
 
-    function makeCoffee() {
+    function makeCoffee(drinkType) {
         // show this image for 1500 ms when user clicks image
+        // console.log(drinkType);
+        drinksOrdered.push(drinkType);
+        console.log(drinksOrdered);
         coffeeImage.setAttribute('src', 'static/coffee_machine.jpg');
         // display this image for 2500 ms
         setTimeout(function() {
