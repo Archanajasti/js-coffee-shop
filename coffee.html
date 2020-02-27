@@ -49,7 +49,7 @@
     // Set these variables to their DOM elements
 
     let coffeeImage = document.querySelector('#coffee-image');    
-    let revenueMessage;
+    let revenueMessage = document.querySelector('#revenue');
     let drinksOrdered = [];
     const espresso = document.querySelector('#espresso');
     const latte = document.querySelector('#latte');
@@ -59,7 +59,7 @@
     
     espresso.addEventListener('click', function () {makeCoffee("espresso"); });
     latte.addEventListener('click', function () {makeCoffee("latte"); });
-    hotChocolate.addEventListener('click', function () {makeCoffee("hotChocolate"); });
+    hotChocolate.addEventListener('click', function () {makeCoffee("hot chocolate"); });
 
     coffeeImage.addEventListener('click', function () {makeCoffee("brew"); });
 
@@ -78,6 +78,10 @@
         setTimeout(function() {
             coffeeImage.setAttribute('src', 'static/coffee_beans.jpg')
         }, 4000);
+
+        //call revenue and use it to update revenueMessage here
+        totalPrice = revenue(drinksOrdered, prices);
+        // revenueMessage.setAttribute(span, `${totalPrice}`)
     }
 
     // use this JavaScript object in further study step
@@ -89,6 +93,18 @@
         "hot chocolate": 2.50
     };
 
+    function revenue(orders, costs) {
+        //for drink in drinksOrdered, locate price and add it to total. return total
+        let total = 0;
+
+        for (drink of orders) {
+            console.log(drink);
+            if (prices.hasOwnProperty(drink)) {
+                total += costs[drink];
+            }
+        } console.log(total)
+        return total
+    }
 
 </script>
 
