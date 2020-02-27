@@ -51,7 +51,11 @@
     let coffeeImage = document.querySelector('#coffee-image');
     let revenueMessage;
 
-    coffeeImage.setAttribute('src', 'static/coffee_mug.jpg')
+    coffeeImage.addEventListener('click', makeCoffee);
+
+    function makeCoffee() {
+        coffeeImage.setAttribute('src', 'static/coffee_mug.jpg');
+    }
 
     // use this JavaScript object in further study step
 
